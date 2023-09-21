@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Real3D-Portrait: One-shot Realistic 3D Talking Portrait Synthesis.">
+  <meta name="keywords" content="Real3D-Portrait, One-shot, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Real3D-Portrait: One-shot Realistic 3D Talking Portrait Synthesis </title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/3dface_logo.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          
+          <h1 class="title is-1 publication-title">
+            <!-- <img src="./static/images/3dface_logo.png"class="interpolation-image" width="4%"/> -->
+            Real3D-Portrait: One-shot Realistic 3D Talking Portrait Synthesis </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Anonymous Authors</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="" class="external-link button is-normal is-rounded is-dark" onclick="alert('We plan to release the source code after the rebuttal phase.')">
+                <span class="icon">
+                <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                </span>
+                <span>Code</span>
+                </a>
+                </span>
+            </div>
+          </div>
+
+            <!-- Abstract. -->
+          <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                  <p>
+
+                    One-shot 3D talking face generation aims to reconstruct 3D avatar from an unseen image,
+                    then animate it with a reference video or audio to obtain a talking porait video. 
+                    The existing methods fail to simultaneously achieve the goals of accurate 3D avatar 
+                    reocnstruction and stable talking face animation. 
+                    Besides, while the existing works mainly focus on synthesizing the head part, 
+                    it is also vital to generate natural torso and background segment 
+                    to obtain a realistic talking portrait video.
+                    
+                  </p>
+                  <p>
+                    To address these limtations, we present <b>Real3D-Potrait</b>, a framework that
+                    (1) improves the one-shot 3D reconstruction power with a large image-to-plane model 
+                    that distill 3D prior knowledge from a 3D face generative model and achieves accurarte 
+                    motion-conditioned face animation with an efficient motion adapter;
+                    (2) synthesizes realistic and high-fidelity video with a head-torso-background
+                    super-resolution module, which generates natural torso movement and supports 
+                    switchable background;
+                    (3) facilitates audio-driven applications with a generic audio-to-motion model. 
+                    Extensive experiments show that Real3D-Portrait generalizes well to unseen identities 
+                    and generates more realistic talking portrait videos compared to previous methods.
+
+                  </p>
+                </div>
+              </div>
+            </div>
+            </div>
+    <!--/ Abstract. -->
+
+        </div>
+      </div>
+      <h2 class="title is-3">Overall Pipeline</h2>
+      The inference process of <b>Real3D-Portrait</b> is shown as follows:
+      <img src="./static/images/Inference.png"
+      class="interpolation-image"
+      alt="The inference process of Real3D-Portrait."/>
+    </div>
+  </div>
+<!-- </section> -->
+
+<!-- <section class="section"> -->
+  
+  <div class="container is-max-desktop">
+
+          <!-- Demo Main -->
+          <h1 class="title is-3">Demo 1: One-Shot Realistic 3D Talking Face Generation</h1>
+          <div class="content has-text-justified">
+            <p>
+              To show the overall performance of <b><u>Real3D-Portrait</u></b>, in the following video, we provide demos of <u><b>10 unseen identities</b></u> driven by <b><u>6 audio clips from various languages</u></b>.
+            </p>
+          </div>
+          <div class="content has-text-centered">
+            <video id="replay-video"
+                  controls
+                  preload
+                  playsinline
+                  width="90%">
+              <source src="./static/videos/DEMO_Aud_Main.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <!--/ Demo Main -->
+
+          <h2 class="title is-3">Demo 2: Comparison with VD/AD Baselines</h2>
+          <p><b>Real3D-Portrait</b> supports both video/audio-driven talking face generation. Hence we compare it against state-of-the-art <u><b>video-driven (VD)</b></u> and <u><b>audio-driven (AD)</b></u> baselines, respectively. </p>
+      
+          <div class="columns is-centered">
+            <!-- Large Pose -->
+            <div class="column">
+
+              <div class="content">
+                <p></p>
+                <h3 class="title is-4">1. Video-Driven Comparison</h3>
+                <p>
+                  <br></br>
+                  We compare with <u><b>Face-vid2vid</b></u> (CVPR 2019 Oral), <u><b>OTAvatar</b></u> (CVPR 2023), and  <u><b>HiDe-NeRF</b></u> (CVPR 2023). The comparison shows that our <b><u>Real3D-Portrait</b></u> overcomes the challenges faced by these methods and achieves one-shot realistic talking video generation.
+                </p>
+                <video id="dollyzoom" controls playsinline height="100%">
+                  <source src="./static/videos/Comparison_with_VD_baselines.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <!--/ Large Pose -->
+      
+            <!-- BG. -->
+            <div class="column">
+
+              <div class="columns is-centered">
+                <div class="column content">
+                <p></p>
+                <h3 class="title is-4">2. Audio-Driven Comparison</h3>
+                  <p>
+                    We compare with two one-shot methods: <u><b>MakeItTalk</b></u> (SIGGRAPH Asia 2020) and <u><b>PC-AVS</b></u> (CVPR 2023), as well as a identity-overfitted NeRF-based method, <u><b>RAD-NeRF</b></u> (arxiv 2023). We find <b><u>Real3D-Portrait</b></u> achieves the best lip-sync among all test baselines, and produces the best visual quality among the one-shot methods, even comparable to the identity-overfitted <b><u>RAD-NeRF</b></u>.
+                  </p>
+                  <video id="matting-video" controls playsinline height="100%">
+                    <source src="./static/videos/Comparison_with_AD_baselines.mp4"
+                            type="video/mp4">
+                  </video>
+                </div>
+      
+              </div>
+            </div>
+          </div>
+
+
+          <h2 class="title is-3">Demo 3: The features of HTB-SR model</h2>
+          <p>With the design of head-torso-background super-resolution (HTB-SR) model, our proposed <b>Real3D-Portrait</b> could generate realistic and high-fidelity video with <b>natural torso movement</b> and <b>switchable background</b>. </p>
+      
+          <div class="columns is-centered">
+            <!-- Large Pose -->
+            <div class="column">
+
+              <div class="content">
+                <p></p>
+                <h3 class="title is-4">1. Natural Torso Movement</h3>
+                <p>
+                  With the warp-based torso branch in HTB-SR model, our proposed
+                  <b>Real3D-Portrait</b> could generate natural torso movement at a large scale.
+                </p>
+                <video id="dollyzoom" controls playsinline height="100%">
+                  <source src="./static/videos/LargePose.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <!--/ Large Pose -->
+      
+            <!-- BG. -->
+            <div class="column">
+
+              <div class="columns is-centered">
+                <div class="column content">
+                <p></p>
+                <h3 class="title is-4">2. Switchable Background</h3>
+                  <p>
+                    With the individual background branch in HTB-SR model, our proposed <b>Real3D-Portrait</b> supports switchable background, which is useful in video conferencing.
+                  </p>
+                  <video id="matting-video" controls playsinline height="100%">
+                    <source src="./static/videos/Obama_BG.mp4"
+                            type="video/mp4">
+                  </video>
+                </div>
+      
+              </div>
+            </div>
+          </div>
+
+
+          <h2 class="title is-3">Demo 4: How Real3D-Portrait generate the final video</h2>
+          In the following video, we show how the final video is generated. (1) The <u>first column</u> is the source image, which is processed by the Image-to-Plane model to reconstruct a 3D avatar (canonical plane). (2) The <u>second column</u> is the motion representation, PNCC, which is predicted by the audio-to-motion model given the input audio signals. 
+          (3) Then the PNCC is used by motion adapter to obtain the motion diff-plane. By performing volume rendering to the <b>(canonical plane + motion diff-plane)</b>, we obtain the <u>third column</u>, which is the 128x128 resolution head image. (4) Then we feed the head image and source torso/background image into the head-torso-background super-resolution model to obtain the final 512x512 resolution video (which is the <u>fourth column</u>).
+
+                    <!-- Welcome video -->
+        <section class="hero is-light is-small">
+          <div class="hero-body">
+            <div class="container">
+                <div class="item item-steve">
+                  <video poster="" id="steve" controls playsinline height="100%">
+                    <source src="./static/videos/Macron_debug.mp4"
+                            type="video/mp4">
+                  </video>
+                </div>
+            </div>
+          </div>
+        </section>
+      </div>
+          </div>
+
+          <!--/ BG. -->
+      
+          
+
+
+    <!-- Welcome video -->
+
+</body>
+</html>
