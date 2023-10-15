@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta charset="utf-8">
   <meta name="description"
-        content="Real3D-Portrait: One-shot Realistic 3D Talking Portrait Synthesis.">
+        content="GeneFace++: Generalized and Stable Real-Time 3D Talking Face Generation">
   <meta name="keywords" content="Real3D-Portrait, One-shot, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Real3D-Portrait: One-shot Realistic 3D Talking Portrait Synthesis </title>
+  <title>GeneFace++: Generalized and Stable Real-Time 3D Talking Face Generation </title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -32,6 +33,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+
   <link rel="icon" href="./static/images/3dface_logo.png">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -39,6 +41,7 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script src="./static/js/style.js"></script>
 </head>
 <body>
 
@@ -51,7 +54,8 @@
           
           <h1 class="title is-1 publication-title">
             <!-- <img src="./static/images/3dface_logo.png"class="interpolation-image" width="4%"/> -->
-            Real3D-Portrait: One-shot Realistic 3D Talking Portrait Synthesis </h1>
+            GeneFace++: Generalized and Stable <p></p>
+            Real-Time 3D Talking Face Generation </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               Anonymous Authors</span>
@@ -78,29 +82,31 @@
                 <h2 class="title is-3">Abstract</h2>
                 <div class="content has-text-justified">
                   <p>
-                    One-shot 3D talking portrait generation aims to reconstruct a 3D avatar
-                     from an unseen image, and then animate it with a reference video or 
-                     audio to generate a talking portrait video. The existing methods fail 
-                     to simultaneously achieve the goals of accurate 3D avatar reconstruction 
-                     and stable talking face animation. Besides, while the existing works
-                      mainly focus on synthesizing the head part, it is also vital to 
-                      generate natural torso and background segments to obtain a realistic
-                       talking portrait video. 
-                      </p>
-                      <p>
-                       To address these limitations, we present Real3D-Potrait, 
-                       a framework that (1) improves the one-shot 3D reconstruction
-                        power with a large image-to-plane model that distills 3D
-                         prior knowledge from a 3D face generative model; 
-                         (2) facilitates accurate motion-conditioned animation 
-                         with an efficient motion adapter; (3) synthesizes 
-                         realistic video with natural torso movement and switchable
-                          background using a head-torso-background super-resolution
-                           model; and (4) supports one-shot audio-driven talking face generation 
-                           with a generalizable audio-to-motion model. Extensive experiments show 
-                           that Real3D-Portrait generalizes well to unseen identities and generates
-                            more realistic talking portrait videos compared to previous methods. 
-
+                    Generating talking person portraits given arbitrary speech input is a crucial
+                     problem in the field of digital human. A modern talking face generation
+                     system is expected to achieve the goals of generalized audio-lip synchronization, 
+                     good video quality, and high system efficiency. Recently, neural radiance field (NeRF)
+                      has become a popular rendering technique in this field since it could achieve 
+                      high-fidelity and 3D-consistent talking face generation with a few-minute-long training 
+                      video. However, there still exist several challenges for NeRF-based methods: 
+                      1) as for the <b>lip synchronization,</b> it is hard to generate a long facial motion sequence
+                       of high lip accuracy and temporal consistency; 2) as for the <b>video quality</b>,
+                        due to the limited data used to train the renderer, it is vulnerable to out-of-domain
+                         motion condition and produce bad rendering results occasionally; 3) as for the <b>system 
+                          efficiency</b>, the slow training and inference speed of the vanilla NeRF severely obstruct
+                          its usage in real-world applications. 
+                        </p>
+                        <p>                     
+                      In this paper, we propose <u><b>GeneFace++</b></u> to handle these challenges by: 1)
+                       utilizing the <u><b>pitch contour</b></u> as an auxiliary feature and introducing a temporal 
+                       loss in the facial motion prediction process; 2) proposing a <u><b>landmark locally 
+                        linear embedding</b></u> method to regulate the outliers in the predicted motion sequence
+                        to avoid robustness issues; 3) designing a <u><b>instant motion-to-video renderer</b></u> to 
+                        achieves fast training and real-time inference. With these settings, GeneFace++
+                         becomes the first NeRF-based method that achieves stable and real-time talking
+                          face generation with generalized audio-lip synchronization. Extensive experiments 
+                          show that our method outperforms state-of-the-art baselines in terms of subjective 
+                          and objective evaluation.
 
                   </p>
                 </div>
@@ -112,7 +118,7 @@
         </div>
       </div>
       <h2 class="title is-3">Overall Pipeline</h2>
-      The inference process of <b>Real3D-Portrait</b> is shown as follows:
+      The inference process of <b>GeneFace++</b> is shown as follows:
       <img src="./static/images/Inference.png"
       class="interpolation-image"
       alt="The inference process of Real3D-Portrait."/>
@@ -124,11 +130,35 @@
   
   <div class="container is-max-desktop">
 
+            <!-- Demo Main -->
+            <h1 class="title is-3">Demo 1: GeneFace++ of 2 identites driven by 6 languages</h1>
+            <div class="content has-text-justified">
+              <p>
+                We provide a demo video in which our <b><u>GeneFace++</u></b> of 2 identities (May and Obama) are driven by audio clips from 6 languages (English, Chinese, French, German, Korean, and Japanese), to show that we achieve the three goals of modern talking face system: 
+                <ol>
+                  <li><b>generalized lip synchornization</b> (We generate lip-sync results to 6 languages); </li>
+                  <li><b>good video quality</b> (We generate high-qualty videos with rich identity-specific details and 3D consistency); </li>
+                  <li><b>high system efficency</b> (The 512x512-resolution video frames are generated by our instant motion-to-video model in 50+ FPS on a Nvidia A100). </li>
+                </ol>
+              </p>
+            </div>
+            <div class="content has-text-centered">
+              <video id="replay-video"
+                    controls
+                    preload
+                    playsinline
+                    width="90%">
+                <source src="./static/videos/May_Obama_demo.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <!--/ Demo Main -->
+
           <!-- Demo Main -->
-          <h1 class="title is-3">Demo 1: One-Shot Realistic 3D Talking Face Generation</h1>
+          <h1 class="title is-3">Demo 2: All methods driven by a 3-minute-long song</h1>
           <div class="content has-text-justified">
             <p>
-              To show the overall performance of <b><u>Real3D-Portrait</u></b>, in the following video, we provide demos of <u><b>10 unseen identities</b></u> driven by <b><u>6 audio clips from various languages</u></b>.
+              To further show the good lip-sync generalizability of <b><u>GeneFace++</u></b>, in the following video, we provide a hard case, in which all methods are driven by a <u><b>three-minute-long song</u></b>.
             </p>
           </div>
           <div class="content has-text-centered">
@@ -137,28 +167,29 @@
                   preload
                   playsinline
                   width="90%">
-              <source src="./static/videos/DEMO_Aud_Main.mp4"
+              <source src="./GeneFace++/dream_it_possible.mp4"
                       type="video/mp4">
             </video>
           </div>
           <!--/ Demo Main -->
 
-          <h2 class="title is-3">Demo 2: Comparison with VD/AD Baselines</h2>
-          <p><b>Real3D-Portrait</b> supports both video/audio-driven talking face generation. Hence we compare it against state-of-the-art <u><b>video-driven (VD)</b></u> and <u><b>audio-driven (AD)</b></u> baselines, respectively. </p>
-      
+
+
+          <h2 class="title is-3">Demo 3: Ablations on the Instant Motion-to-Video renderer</h2>
+          We visualize the following ablations: 1) whether non-face regularization loss in the training NeRF stage could address the temporal jittering problem in the non-face area; 2) whether the SR module improves the image fidelity of the NeRF renderer while keeping the 3D consistency.
+
           <div class="columns is-centered">
             <!-- Large Pose -->
             <div class="column">
 
               <div class="content">
                 <p></p>
-                <h3 class="title is-4">1. Video-Driven Comparison</h3>
+                <h3 class="title is-4">1. w./w.o. non-face reg loss</h3>
                 <p>
-                  <br></br>
-                  We compare with <u><b>Face-vid2vid</b></u> (CVPR 2019 Oral), <u><b>OTAvatar</b></u> (CVPR 2023), and  <u><b>HiDe-NeRF</b></u> (CVPR 2023). The comparison shows that our <b><u>Real3D-Portrait</b></u> overcomes the challenges faced by these methods and achieves one-shot realistic talking video generation.
+                  We can see that with the non-face reg loss, the rendered head is more temporal stable and realistic.
                 </p>
                 <video id="dollyzoom" controls playsinline height="100%">
-                  <source src="./static/videos/Comparison_with_VD_baselines.mp4"
+                  <source src="./static/videos/w_wo_nonface_reg.mp4"
                           type="video/mp4">
                 </video>
               </div>
@@ -171,75 +202,30 @@
               <div class="columns is-centered">
                 <div class="column content">
                 <p></p>
-                <h3 class="title is-4">2. Audio-Driven Comparison</h3>
-                  <p>
-                    We compare with two one-shot methods: <u><b>MakeItTalk</b></u> (SIGGRAPH Asia 2020) and <u><b>PC-AVS</b></u> (CVPR 2023), as well as a identity-overfitted NeRF-based method, <u><b>RAD-NeRF</b></u> (arxiv 2023). We find <b><u>Real3D-Portrait</b></u> achieves the best lip-sync among all test baselines, and produces the best visual quality among the one-shot methods, even comparable to the identity-overfitted <b><u>RAD-NeRF</b></u>.
-                  </p>
-                  <video id="matting-video" controls playsinline height="100%">
-                    <source src="./static/videos/Comparison_with_AD_baselines.mp4"
-                            type="video/mp4">
-                  </video>
+                <h3 class="title is-4">2. w./w.o. SR module</h3>
+                  
+                  <p><b>Click the image below</b> to open a html that could control a slider to compare two images:</p>
+                    <!-- <img src="static/images/w_wo_SR.png" onclick="location.href='./static/pages/compare_with_without_sr.html'"> -->
+                    <img src="static/images/w_wo_SR.png" onclick="window.open('./static/pages/compare_with_without_sr.html')" style="cursor: pointer">
+
                 </div>
       
               </div>
             </div>
           </div>
 
-
-          <h2 class="title is-3">Demo 3: The features of HTB-SR model</h2>
-          <p>With the design of head-torso-background super-resolution (HTB-SR) model, our proposed <b>Real3D-Portrait</b> could generate realistic and high-fidelity video with <b>natural torso movement</b> and <b>switchable background</b>. </p>
-      
-          <div class="columns is-centered">
-            <!-- Large Pose -->
-            <div class="column">
-
-              <div class="content">
-                <p></p>
-                <h3 class="title is-4">1. Natural Torso Movement</h3>
-                <p>
-                  With the warp-based torso branch in HTB-SR model, our proposed
-                  <b>Real3D-Portrait</b> could generate natural torso movement at a large scale.
-                </p>
-                <video id="dollyzoom" controls playsinline height="100%">
-                  <source src="./static/videos/LargePose.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-            </div>
-            <!--/ Large Pose -->
-      
-            <!-- BG. -->
-            <div class="column">
-
-              <div class="columns is-centered">
-                <div class="column content">
-                <p></p>
-                <h3 class="title is-4">2. Switchable Background</h3>
-                  <p>
-                    With the individual background branch in HTB-SR model, our proposed <b>Real3D-Portrait</b> supports switchable background, which is useful in video conferencing.
-                  </p>
-                  <video id="matting-video" controls playsinline height="100%">
-                    <source src="./static/videos/Obama_BG.mp4"
-                            type="video/mp4">
-                  </video>
-                </div>
-      
-              </div>
-            </div>
-          </div>
+          <h2 class="title is-3">Demo 4: Text-driven talking face generation</h2>
+          In the following video, we show the potential of our GeneFace++ to achieve <b>text-driven talking face generation</b>. We first use a zero-shot TTS model with the Obama's voice as prompts to generate the audio track given arbitrary text inputs, then use the synthesized audio track to drive our GeneFace++ to obtain the video track. Both of the left and right sub-videos are synthesized by GeneFace++, yet given different head pose sequence. 
+        
 
 
-          <h2 class="title is-3">Demo 4: How Real3D-Portrait generate the final video</h2>
-          In the following video, we show how the final video is generated. (1) The <u>first column</u> is the source image, which is processed by the Image-to-Plane model to reconstruct a 3D avatar (canonical plane). (2) The <u>second column</u> is the motion representation, PNCC, which is predicted by the audio-to-motion model given the input audio signals. 
-          (3) Then the PNCC is used by motion adapter to obtain the motion diff-plane. By performing volume rendering to the <b>(canonical plane + motion diff-plane)</b>, we obtain the <u>third column</u>, which is the 128x128 resolution head image. (4) Then we feed the head image and source torso/background image into the head-torso-background super-resolution model to obtain the final 512x512 resolution video (which is the <u>fourth column</u>).
-
-                    <!-- Welcome video -->
+          <!-- Welcome video -->
         <section class="hero is-light is-small">
           <div class="hero-body">
             <div class="container">
                 <div class="item item-steve">
                   <video poster="" id="steve" controls playsinline height="100%">
-                    <source src="./static/videos/Macron_debug.mp4"
+                    <source src="./static/videos/GeneFace++withTTS.mp4"
                             type="video/mp4">
                   </video>
                 </div>
@@ -252,6 +238,8 @@
           <!--/ BG. -->
       
           
+
+
 
 
     <!-- Welcome video -->
