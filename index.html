@@ -82,32 +82,22 @@
                 <h2 class="title is-3">Abstract</h2>
                 <div class="content has-text-justified">
                   <p>
-                    Generating talking person portraits given arbitrary speech input is a crucial
-                     problem in the field of digital human. A modern talking face generation
-                     system is expected to achieve the goals of generalized audio-lip synchronization, 
-                     good video quality, and high system efficiency. Recently, neural radiance field (NeRF)
-                      has become a popular rendering technique in this field since it could achieve 
-                      high-fidelity and 3D-consistent talking face generation with a few-minute-long training 
-                      video. However, there still exist several challenges for NeRF-based methods: 
-                      1) as for the <b>lip synchronization,</b> it is hard to generate a long facial motion sequence
-                       of high lip accuracy and temporal consistency; 2) as for the <b>video quality</b>,
-                        due to the limited data used to train the renderer, it is vulnerable to out-of-domain
-                         motion condition and produce bad rendering results occasionally; 3) as for the <b>system 
-                          efficiency</b>, the slow training and inference speed of the vanilla NeRF severely obstruct
-                          its usage in real-world applications. 
-                        </p>
-                        <p>                     
-                      In this paper, we propose <u><b>GeneFace++</b></u> to handle these challenges by: 1)
-                       utilizing the <u><b>pitch contour</b></u> as an auxiliary feature and introducing a temporal 
-                       loss in the facial motion prediction process; 2) proposing a <u><b>landmark locally 
-                        linear embedding</b></u> method to regulate the outliers in the predicted motion sequence
-                        to avoid robustness issues; 3) designing a <u><b>instant motion-to-video renderer</b></u> to 
-                        achieve fast training and real-time inference. With these settings, GeneFace++
-                         becomes the first NeRF-based method that achieves stable and <b>nearly 2-times real-time (45 FPS on RTX3090Ti) </b>
-                         talking face generation with generalized audio-lip synchronization. Extensive experiments 
-                          show that our method outperforms state-of-the-art baselines in terms of subjective 
-                          and objective evaluation.
-
+                    Generating talking person portraits given arbitrary speech input is a crucial 
+                    problem in the field of digital humans. A modern talking face generation system
+                     is expected to achieve the goals of generalized audio-lip synchronization, good
+                      video quality, and high system efficiency. Recently, the neural radiance field (NeRF)
+                       has become a popular rendering technique in this field since it can achieve high-fidelity 
+                       and 3D-consistent talking face generation with a few-minute-long training video. However,
+                        the NeRF-based methods are challenged with non-generalized lip motion prediction, non-robust
+                         rendering results to OOD motion, and low inference efficiency. In this paper, we propose 
+                         GeneFace++ to handle these challenges by 1) designing a generic audio-to-motion model that
+                          utilizes pitch and talking style information to improve temporal consistency and lip accuracy;
+                           2) introducing a landmark locally linear embedding method to post-process the predicted motion 
+                           sequence to alleviate the visual artifact; 3) proposing an instant motion-to-video renderer to 
+                           achieve efficient training and real-time inference. With these settings, GeneFace++ becomes the
+                            first NeRF-based method that achieves stable and real-time talking face generation with generalized
+                             audio-lip synchronization. Extensive experiments show that our method outperforms state-of-the-art
+                              baselines in terms of subjective and objective evaluation. 
                   </p>
                 </div>
               </div>
